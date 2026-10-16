@@ -1,35 +1,46 @@
-# 🎲 RandomLab — V1
+# 🎲 RandomLab — V2 en vivo
 
-Web estática que genera dinero de 3 formas: anuncios + afiliados + Pack Pro 9€.
-Coste: 0€/mes. Sin backend. La mantienes sin saber programar.
+**Web:** https://randomlab-zzolrac.netlify.app
+**Repo:** https://github.com/zzolrac/RandomeProyect
+**Estado:** 15 generadores · ~280 ideas · SEO + PWA · 0€/mes
 
-## 1. Verla en tu PC
-Haz doble clic en `index.html`. Funciona sin internet (salvo las fuentes).
+## Flujo CLI (el que siempre usamos)
 
-## 2. Publicarla gratis (elige 1)
-**Opción fácil — Netlify Drop:**
-1. Ve a app.netlify.com/drop
-2. Arrastra la carpeta `RandomeProyect`
-3. Te da un link tipo `https://randomlab.netlify.app` → ya está online
+```powershell
+# 1. Cambios
+git add -A; git commit -m "lo que cambie"
+git push -u origin main
 
-**Opción pro — Cloudflare Pages (gratis, más rápido):**
-1. Crea cuenta en cloudflare.com
-2. Pages → Upload → sube la carpeta
-3. Conecta tu dominio si tienes (opcional)
+# 2. Deploy prod
+netlify deploy --prod --dir .
 
-## 3. Ganar dinero (por orden)
-1. **Afiliados (día 1):** edita `data.js` y cambia `TU-CODIGO` / `TU-TAG-21` por tus links reales de Amazon, Booking, Shopify. Cada venta = 5-15%.
-2. **Pack Pro 9€ (semana 1):** crea un Gumroad gratis, sube un PDF con las 900 ideas (te lo genero yo si quieres), pega el link en `data.js → PRO_LINK`.
-3. **AdSense (mes 1-2, con 30+ visitas/día):** solicita AdSense, pega su código donde pone `<!-- Espacio anuncio -->` en `index.html`.
+# 3. Ver estado
+gh repo view --web
+netlify status
+netlify logs --help
+```
 
-Expectativa honesta: 0-10€ mes 1, 50-150€/mes desde mes 2-3 si publicas 2 posts/semana en TikTok/IG con tus generadores.
+GitHub auto-despliega si conectas el repo en Netlify Dashboard → Add new site → Import. El `netlify.toml` ya lleva headers, caché y redirects `/g/:slug`.
 
-## 4. Mantenerla sin código
-- Añadir ideas: abre `data.js` con Bloc de notas, añade `"Mi idea",` dentro de `items:[…]`.
-- Añadir generador: copia un bloque `{id:…}` entero, cambia título y lista.
-- Cambiar colores/precio: dime y lo hago yo.
+## Ganar dinero (por orden)
+1. **Afiliados:** edita `data.js`, cambia `TU-TAG-21` / `TU-CODIGO` por tus tags Amazon, Booking, Shopify.
+2. **Pack Pro 9€:** crea producto en Gumroad, pega link en `data.js → PRO_LINK` (auto-actualiza `index.html` + `pack-pro.html`).
+3. **AdSense:** pide aprobación con 10-20 visitas/día, pega código en `index.html → Espacio anuncio`.
 
-## 5. V2 (cuando V1 dé 100€/mes)
-- +9 generadores para llegar a 15 (SEO programático)
-- Páginas individuales por generador (`/generador/recetas`) para Google
-- Inglés ES+EN, modo oscuro, PWA instalable
+## Mantener sin código
+- Añadir idea: Bloc de notas → `data.js` → dentro de `items:[...]` añade `"Mi idea",`
+- Nuevo generador: copia un bloque `{id:...}` entero.
+- Precio/títulos Pack: edita `pack-pro.html` (textos ya listos del subagente SEO).
+
+## Qué se hizo en V2
+- 6 → 15 generadores (pelis, libros, side-hustle, citas, nombres-bebé, recetas-fit, contenido, rompehielos, regalos)
+- `generador.html?g=slug` deep-link compartible + `history` + recientes `localStorage`
+- SEO: canonical, OG, JSON-LD, `sitemap.xml`, `robots.txt`
+- PWA: `manifest.json` + `sw.js` (offline)
+- Ventas: `pack-pro.html` con copy 9€ + garantía
+- Infra: `netlify.toml` (seguridad + caché), `.gitignore`
+
+## V3 (cuando dé 100€/mes)
+- 15 páginas estáticas `/g/slug` pre-render para SEO total
+- ES+EN (`/en/`), modo oscuro, PWA instalable con iconos PNG
+- Generador PDF del Pack directo desde la web
