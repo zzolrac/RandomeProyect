@@ -1,0 +1,18 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Generador — RandomLab</title><meta name="description" content="Generador gratis RandomLab sin registro.">
+<link rel="stylesheet" href="styles.css"><link rel="manifest" href="manifest.json"></head>
+<body><header class="top"><div class="wrap top-in"><a class="logo" href="index.html">🎲 RandomLab</a><nav><a href="index.html#generadores">Todos</a><a href="pack-pro.html">Pack Pro</a></nav><a class="btn small dark" href="pack-pro.html">Pack Pro 9€</a></div></header>
+<main class="wrap"><p style="margin:18px 0"><a href="index.html">← Volver a todos</a></p><section class="player-card" style="margin:0 auto;max-width:620px"><div class="player-top"><span id="player-emoji">🎲</span><div><h3 id="player-title">Cargando…</h3><p id="player-desc"></p></div></div><div class="result" id="result">Pulsa generar 👇</div><div class="player-actions"><button class="btn mega" id="btn-generate">🎲 Generar</button><button class="btn ghost" id="btn-copy">Copiar</button><a class="btn ghost" href="index.html">Todos</a></div><div class="affil" id="affil"></div></section></main>
+<script src="data.js"></script><script>
+const slug=new URLSearchParams(location.search).get('g');
+const g=GENERATORS.find(x=>x.id===slug)||GENERATORS[0];
+document.title=g.title+' gratis — RandomLab';
+document.getElementById('player-emoji').textContent=g.emoji;
+document.getElementById('player-title').textContent=g.title;
+document.getElementById('player-desc').textContent=g.desc;
+document.getElementById('affil').innerHTML=g.affil;
+const res=document.getElementById('result');
+document.getElementById('btn-generate').onclick=()=>{res.textContent=g.items[Math.floor(Math.random()*g.items.length)];res.classList.remove('pop');void res.offsetWidth;res.classList.add('pop');};
+document.getElementById('btn-copy').onclick=async()=>{try{await navigator.clipboard.writeText(res.textContent);alert('Copiado ✔')}catch{}};
+document.getElementById('btn-generate').click();
+</script></body></html>

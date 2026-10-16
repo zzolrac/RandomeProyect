@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RandomLab — 15 Generadores gratis que te sacan de un apuro</title>
+<meta name="description" content="15 generadores gratis: ideas de negocio, recetas, pelis, libros, citas, regalos y más. Sin registro. Decide en 5 segundos.">
+<link rel="canonical" href="https://randomlab.netlify.app/">
+<meta property="og:title" content="RandomLab — Que decida el dado">
+<meta property="og:description" content="15 generadores gratis: comida, negocios, viajes, pelis, regalos. Sin registro.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFD60A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"RandomLab","url":"https://randomlab.netlify.app/","description":"15 generadores gratis"}</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="#">🎲 RandomLab</a>
+    <nav><a href="#generadores">Generadores</a><a href="#pro">Pack Pro</a><a href="#faq">FAQ</a></nav>
+    <a class="btn small dark" id="cta-pro-top" href="#" target="_blank" rel="noopener">Pack Pro 9€</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="badge">100% gratis · sin registro · 0 spam</div>
+    <h1>¿No te decides?<br><span class="hl">Que decida el dado.</span></h1>
+    <p class="sub">15 mini-herramientas virales para comer, entrenar, viajar, nombrar y lanzar ideas. Pulsa, copia y sigue con tu día.</p>
+    <div class="hero-actions">
+      <button class="btn mega" id="btn-surprise">🎲 Sorpréndeme</button>
+      <a class="btn ghost" href="#generadores">Ver todas ↓</a>
+    </div>
+    <div class="stats"><div><b id="stat-count">6</b><span>generadores</span></div><div><b>+900</b><span>ideas listas</span></div><div><b>0€</b><span>siempre gratis</span></div></div>
+  </section>
+
+  <!-- Espacio anuncio: pega aquí tu código AdSense cuando lo aprueben -->
+  <!-- <div class="ad-slot">Anuncio</div> -->
+
+  <section id="generadores">
+    <div class="sec-head"><h2>Elige tu generador</h2><input id="search" type="search" placeholder="Buscar: cena, negocio, viaje…"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="player" id="player" hidden>
+    <div class="player-card">
+      <div class="player-top"><span id="player-emoji">💡</span><div><h3 id="player-title">Ideas de negocio</h3><p id="player-desc"></p></div><button id="player-close" aria-label="cerrar">✕</button></div>
+      <div class="result" id="result">Pulsa generar 👇</div>
+      <div class="player-actions">
+        <button class="btn mega" id="btn-generate">🎲 Generar</button>
+        <button class="btn ghost" id="btn-copy">Copiar</button>
+        <button class="btn ghost" id="btn-share">Compartir</button>
+      </div>
+      <div class="affil" id="affil"></div>
+    </div>
+  </section>
+
+  <section class="pro" id="pro">
+    <div class="pro-card">
+      <div><div class="badge dark">PACK PRO · 9€ pago único</div>
+      <h2>900 ideas listas para cuando te quedas en blanco</h2>
+      <p>PDF 60 páginas + Notion + Sheets. Lo pagas una vez, lo usas siempre. Garantía 7 días.</p>
+      <ul><li>✔ 15 listas × 60 ideas reales, no frases motivacionales</li><li>✔ PDF + Notion filtrable + Sheets ordenable</li><li>✔ Actualizaciones menores incluidas</li></ul>
+      <a class="btn mega" id="cta-pro-main" href="#" target="_blank" rel="noopener">Quiero mis 900 ideas por 9€ →</a>
+      <p class="tiny">Vendido con Gumroad (0€/mes). Cambia el enlace en <code>data.js → PRO_LINK</code>.</p></div>
+      <div class="pro-mock">📦<span>RANDOM<br>LAB<br>PRO</span></div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>Preguntas rápidas</h2>
+    <details open><summary>¿Es gratis de verdad?</summary><p>Sí. La web es estática, no pagamos servidores caros y la mantenemos con anuncios y afiliados. Tú nunca pagas por generar.</p></details>
+    <details><summary>¿Cómo gana dinero esta web?</summary><p>3 vías: anuncios (AdSense), enlaces de afiliado (Amazon, Booking…) y el Pack Pro de 9€. Todo marcado como publicidad.</p></details>
+    <details><summary>¿Necesito registrarme?</summary><p>No. Todo funciona en tu navegador, sin cuenta ni cookies de seguimiento propias.</p></details>
+  </section>
+</main>
+
+<footer><div class="wrap foot"><span>© 2026 RandomLab · Hecho con 🎲</span><span><a href="#">Privacidad</a> · <a href="#">Contacto</a> · Publicidad marcada como tal</span></div></footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
